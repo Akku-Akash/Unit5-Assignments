@@ -1,28 +1,54 @@
-import "./index.js"
-let btn=document.querySelector("#btn");
-btn.setAttribute("class","submit_btn")
-let form =document.querySelector("form");
-form.setAttribute("class","taskForm")
-document.querySelector("#submit").addEventListener("submit",(e)=>{
-    e.preventDefault();
-    let task_name=document.querySelector("#task").value;
-    let id=Math.floor(Math.random()*10)+1;
-    append(task_name,id);
-})
+import "./index.css";
+import img from '../img/note.png';
 
-function append(task,id){
-    let row=document.createElement("tr");
-    row.setAttribute("class","row");
-    let td1=document.createElement("td");
-    let td2=document.createElement("td");
-    let td3=document.createElement("td");
-    let button=document.createElement("button");
-    button.textContent="Delete"
-    button.setAttribute("id","deletebtn")
-    td1.textContent=task;
-    td2.textContent=id;
-    td3.append(button);
-    row.append(td2,td1,td3);
-    document.querySelector("tbody").append(row);
+let icon = document.createElement('img');
+icon.src = img;
+document.querySelector('.icon').append(icon);
 
+var todoArr = [];
+createTable();
+document.querySelector("form").addEventListener("submit", function () {
+  event.preventDefault();
+  var itemName = document.querySelector(".itemName").value;
+  var itemQty = document.querySelector(".itemQty").value;
+
+  if (itemName.length && itemQty.length) {
+    var obj = { itemName: itemName, itemQty: itemQty };
+    todoArr.push(obj);
+    localStorage.setItem("todoArr", JSON.stringify(todoArr));
+    document.querySelector(".itemName").value = "";
+    document.querySelector(".itemQty").value = "";
+    createTable();
+    document.querySelector("span").style.display = "block";
+    document.querySelector("span").style.animation = "example 4s";
+  }
+});
+
+function createTable() {
+  todoArr = JSON.parse(localStorage.getItem("todoArr")) || [];
+
+  document.querySelector("tbody").innerText = "";
+  todoArr.map(function (elem, index) {
+    var tr = document.createElement("tr");
+    var td1 = document.createElement("td");
+    var td2 = document.createElement("td");
+    var td3 = document.createElement("td");
+    var td4 = document.createElement("td");
+
+    td1.innerText = index + 1;
+    td2.innerText = elem.itemName;
+    td3.innerText = elem.itemQty;
+    td4.innerHTML = "<h3> DELETE <h3>";
+    td4.setAttribute("class", "delBtn");
+
+    tr.append(td1, td2, td3, td4);
+    document.querySelector("tbody").append(tr);
+
+    td4.addEventListener("click", function () {
+      todoArr = JSON.parse(localStorage.getItem("todoArr"));
+      todoArr.splice(index, 1);
+      localStorage.setItem("todoArr", JSON.stringify(todoArr));
+      createTable();
+    });
+  });
 }
