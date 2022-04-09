@@ -14,8 +14,9 @@ Day2
 REACT MOBILE OS
 Make this static card in a functional component:
 
-A.1
-![image](https://user-images.githubusercontent.com/93313435/162587017-5d238f52-35d3-4f63-807a-06c7c59c0c80.png
+
+
+Day3
 
 
 REACT NAVBAR
