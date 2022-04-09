@@ -24,3 +24,25 @@ navbar
 Contact is a button
 There will be 3 components: Logo, Links and Button.
 Links component will iterate over an array to populate the middle navigation links
+
+
+REACT INVENTORY
+Create a react app that shows total number of items in an inventory
+Inventory has following items: Books, Pens, Notebooks
+Initialize all to some random number
+Every item has 2 buttons: + and -
+clicking on + increases the count of that item only, same for - button
+at the bottom of the page there's Total section, which shows sum of all the items. books + pens + notebooks
+whenever you are changing any item, it should change the total below as well.
+Inventory should not go below 0
+Use this boilerplate: link you can just download zip as well
+this boilerplate will work with both create-react-app and codesandbox
+
+
+COUNTER
+Counter
+create a counter component that will take the initial value as a prop, and have an increment and decrement button
+on clicking the increment or decrement button the value should increase or decrease
+create a button "double"
+on clicking double the value of the counter should be multiplied by 2
+If counter is odd, show counter in red color, if it's even show in green color
