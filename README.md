@@ -14,6 +14,9 @@ Day2
 REACT MOBILE OS
 Make this static card in a functional component:
 
+https://i.imgur.com/W32l7vQ.png
+
+
 
 
 Day3
@@ -25,6 +28,8 @@ navbar
 Contact is a button
 There will be 3 components: Logo, Links and Button.
 Links component will iterate over an array to populate the middle navigation links
+
+https://i.imgur.com/yblADRP.png
 
 
 REACT INVENTORY
